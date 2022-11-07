@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.controls.Driver;
 import frc.robot.controls.Operator;
+import frc.robot.subsystems.Drivetrain;
 import frc.robot.util.ShuffleboardManager;
 
 /**
@@ -22,6 +23,7 @@ public class Robot extends TimedRobot {
   private Command m_autoCommand;
   public static ShuffleboardManager shuffleboard = new ShuffleboardManager();
 
+  public static Drivetrain m_drive = new Drivetrain();
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -93,6 +95,9 @@ public class Robot extends TimedRobot {
     if (m_autoCommand != null) {
       m_autoCommand.cancel();
     }
+    m_drive.setDefaultCommand(
+      ()->m_drive.arcadeDrive(Driver.getLeftY(), Driver.getRightX());
+    );
   }
 
   /**
