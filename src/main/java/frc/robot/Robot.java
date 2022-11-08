@@ -97,7 +97,7 @@ public class Robot extends TimedRobot {
       m_autoCommand.cancel();
     }
     m_drive.setDefaultCommand(
-      new RunCommand(()->m_drive.arcadeDrive(Driver.getLeftY(), Driver.getRightX()))
+      new RunCommand(()->m_drive.arcadeDrive(Driver.getLeftY(), Driver.getRightX()), m_drive)
     );
   }
 
