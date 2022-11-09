@@ -23,6 +23,7 @@ public class Drivetrain extends SubsystemBase {
   public Drivetrain() {
     m_leftMotor1 = MotorFactory.createTalonFX(Constants.drive.kLeftMotor1);
     m_rightMotor1 = MotorFactory.createTalonFX(Constants.drive.kRightMotor1);
+    m_rightMotor1.setInverted(true);
   }
 
   /**
