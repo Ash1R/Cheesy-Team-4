@@ -44,7 +44,8 @@ public class Drivetrain extends SubsystemBase {
    * @param turn the commanded turn rotation
    */
   public void arcadeDrive(double throttle, double turn) {
-    m_leftMotor1.set(ControlMode.PercentOutput, throttle - turn);
-    m_rightMotor1.set(ControlMode.PercentOutput, throttle + turn);
+    double speed = Driver.getLeftTrigger()>0.5?1:0.5;
+    m_leftMotor1.set(ControlMode.PercentOutput, speed*(throttle - turn));
+    m_rightMotor1.set(ControlMode.PercentOutput, speed*(throttle + turn));
   }
 }
