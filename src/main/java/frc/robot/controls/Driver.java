@@ -25,5 +25,7 @@ public class Driver {
   public static double getRightY(){
     return driver.get(Axis.RIGHT_Y);
   }
-
+  public static double getLeftTrigger() {
+    return driver.get(Axis.LEFT_TRIGGER);
+  }
 }
