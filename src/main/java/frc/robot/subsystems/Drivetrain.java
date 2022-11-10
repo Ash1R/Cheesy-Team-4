@@ -34,8 +34,8 @@ public class Drivetrain extends SubsystemBase {
    * @param rightPower the commanded power to the right motors
    */
   public void tankDrive(double leftPower, double rightPower) {
-    m_leftMotor1.set(ControlMode.PercentOutput, leftPower);
-    m_rightMotor1.set(ControlMode.PercentOutput, rightPower);
+    m_leftMotor1.set(ControlMode.PercentOutput, -leftPower);
+    m_rightMotor1.set(ControlMode.PercentOutput, -rightPower);
   }
 
   /**
