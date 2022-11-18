@@ -49,4 +49,12 @@ public class Drivetrain extends SubsystemBase {
     m_leftMotor1.set(ControlMode.PercentOutput, speed*(throttle - turn));
     m_rightMotor1.set(ControlMode.PercentOutput, speed*(throttle + turn));
   }
+
+  public double getEncoderPosition() {
+    return m_leftMotor1.getSelectedSensorPosition();
+  }
+
+  public void setEncoderPosition() {
+    m_leftMotor1.setSelectedSensorPosition(0);
+  }
 }
