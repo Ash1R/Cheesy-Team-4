@@ -34,7 +34,7 @@ public class ShuffleboardManager {
 
   public void chooserUpdate() {
     m_autoCommand.addOption("Do Nothing", new PrintCommand("This will do nothing!"));
-    m_autoCommand.addOption("Passenger Auto", new PassengerAutoCommand(Robot.m_drive));
+    m_autoCommand.addOption("Timed Passenger Auto (don't use)", new PassengerAutoCommand(Robot.m_drive));
   }
 
   public void loadCommandSchedulerShuffleboard(){
