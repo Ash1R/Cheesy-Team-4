@@ -9,6 +9,11 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
+
+import edu.wpi.first.math.controller.PIDController;
+import edu.wpi.first.math.controller.RamseteController;
+import edu.wpi.first.math.controller.SimpleMotorFeedforward;
+import edu.wpi.first.math.kinematics.DifferentialDriveKinematics;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.constants.Constants;
 import frc.robot.util.MotorFactory;
@@ -20,6 +25,12 @@ public class Drivetrain extends SubsystemBase {
   private final WPI_TalonFX m_leftMotor1;
   
   private final WPI_TalonFX m_rightMotor1;
+
+  private final SimpleMotorFeedforward m_feedforward = new SimpleMotorFeedforward(Constants.auto.S, Constants.auto.V, Constants.auto.A);
+  private final DifferentialDriveKinematics m_driveKinematics = new DifferentialDriveKinematics(0.62865);
+  private final RamseteController m_ramseteController = new RamseteController(Constants.auto.kRamseteB, Constants.auto.kRamseteZeta);
+  private final PIDController m_leftPID = new PIDController(Constants.auto.P, Constants.auto.I, Constants.auto.D);
+  private final PIDController m_rightPID = new PIDController(Constants.auto.P, Constants.auto.I, Constants.auto.D);
 
   public Drivetrain() {
     m_leftMotor1 = MotorFactory.createTalonFX(Constants.drive.kLeftMotor1);
