@@ -1,4 +1,4 @@
-package frc.robot.commands.auto;
+package frc.robot.commands;
 
 import edu.wpi.first.math.trajectory.*;
 import edu.wpi.first.wpilibj2.command.*;
@@ -71,8 +71,8 @@ public class PathweaverCommand extends SequentialCommandGroup {
           drive.getFeedforward(),
           drive.getDriveKinematics(),
           drive::getWheelSpeeds,
-          drive.getLeftVelocityPID(),
-          drive.getRightVelocityPID(),
+          drive.getLeftPID(),
+          drive.getRightPID(),
           drive::tankDriveVolts,
           drive
         ),

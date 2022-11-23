@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import edu.wpi.first.wpilibj2.command.PrintCommand;
 import frc.robot.Robot;
 import frc.robot.commands.PassengerAutoCommand;
+import frc.robot.commands.PathweaverCommand;
 
 public class ShuffleboardManager {
 
@@ -35,6 +36,7 @@ public class ShuffleboardManager {
   public void chooserUpdate() {
     m_autoCommand.addOption("Do Nothing", new PrintCommand("This will do nothing!"));
     m_autoCommand.addOption("Timed Passenger Auto (don't use)", new PassengerAutoCommand(Robot.m_drive));
+    m_autoCommand.addOption("Pathweaver Auto", new PathweaverCommand("Unnamed", true, true));
   }
 
   public void loadCommandSchedulerShuffleboard(){
