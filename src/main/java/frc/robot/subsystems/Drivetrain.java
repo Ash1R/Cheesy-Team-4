@@ -46,7 +46,7 @@ public class Drivetrain extends SubsystemBase {
     m_rightMotor1 = MotorFactory.createTalonFX(Constants.drive.kRightMotor1);
     m_rightMotor1.setInverted(true);
 
-    m_navx = new AHRS(SPI.Port.kMXP);
+    m_navX = new AHRS(SPI.Port.kMXP);
     m_odometry = new DifferentialDriveOdometry(m_navX.getRotation2d());
   }
 
