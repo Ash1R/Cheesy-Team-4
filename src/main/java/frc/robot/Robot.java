@@ -77,6 +77,7 @@ public class Robot extends TimedRobot {
   public void autonomousInit() {
     System.out.println("autonomous initialized");
     if (m_autoCommand != null) {
+      System.out.println("Auto command is: "+m_autoCommand.getName());
       m_autoCommand.schedule();
     }else{
       System.err.println("autoCommand is null");
