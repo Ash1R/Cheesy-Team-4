@@ -58,6 +58,7 @@ public class PathweaverCommand extends SequentialCommandGroup {
   public PathweaverCommand(Trajectory trajectory, Drivetrain drive, boolean resetPose, boolean stopAtEnd) {
     m_drive = drive;
     addRequirements(drive);
+    System.out.println("Pathweaver command got called");
 
     if (trajectory != null) {
 
@@ -80,6 +81,7 @@ public class PathweaverCommand extends SequentialCommandGroup {
       );
     } else {
       addCommands(new DoNothing());
+      System.err.println("trajectory is null");
     }
   }
 }
