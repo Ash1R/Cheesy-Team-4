@@ -26,6 +26,7 @@ public class PathweaverCommand extends SequentialCommandGroup {
       resetPose, 
       stopAtEnd
     );
+    System.out.println("PathweaverCommand called other constructer");
   }
 
   /**
