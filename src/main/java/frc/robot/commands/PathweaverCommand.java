@@ -19,6 +19,10 @@ public class PathweaverCommand extends SequentialCommandGroup {
    * @param resetPose Whether or not to reset the pose before starting.
    * @param stopAtEnd Whether or not to set the motor power to zero at the end of the command.
    */
+  public PathweaverCommand(boolean print, String trajectoryName, boolean resetPose, boolean stopAtEnd) {
+    System.out.println("PathweaverCommand test constructor");
+  }
+  
   public PathweaverCommand(String trajectoryName, boolean resetPose, boolean stopAtEnd) {
     this(
       Functions.getTrajectory(trajectoryName),
