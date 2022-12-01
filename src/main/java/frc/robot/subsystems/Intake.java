@@ -11,10 +11,26 @@ import frc.robot.util.MotorFactory;
 public class Intake extends SubsystemBase {
 
     private final CANSparkMax m_motor;
+    private double speed;
 
     public Intake() {
         m_motor = MotorFactory.createSparkMAX(Constants.intake.kMotorId, MotorType.kBrushless);
     }
     
-    
+    public void setMotor(double speed){
+        this.speed=speed;
+        m_motor.set(speed);
+    }
+
+    public double getSpeed(){
+        return speed;
+    }
+
+    public void toggle(){
+        if(getSpeed()==0){
+            setMotor(1);
+        }else{
+            setMotor(0);
+        }
+    }
 }

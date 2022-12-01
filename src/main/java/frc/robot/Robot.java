@@ -12,6 +12,8 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 import frc.robot.controls.Driver;
 import frc.robot.controls.Operator;
 import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.Outtake;
 import frc.robot.util.ShuffleboardManager;
 
 /**
@@ -25,6 +27,8 @@ public class Robot extends TimedRobot {
   public static ShuffleboardManager shuffleboard = new ShuffleboardManager();
 
   public static Drivetrain m_drive = new Drivetrain();
+  public static Intake m_intake = new Intake();
+  public static Outtake m_outtake = new Outtake();
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -103,6 +107,7 @@ public class Robot extends TimedRobot {
     m_drive.setDefaultCommand(
       new RunCommand(()->m_drive.arcadeDrive(Driver.getLeftY(), Driver.getRightX()), m_drive)
     );
+    m_intake.setMotor(1);//Don't change this. If it's going in the wrong direction, invert it in the Intake class
   }
 
   /**
