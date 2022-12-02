@@ -11,6 +11,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import com.kauailabs.navx.frc.AHRS;
 
+import ctre_shims.TalonEncoder;
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.controller.RamseteController;
 import edu.wpi.first.math.controller.SimpleMotorFeedforward;
@@ -40,13 +41,15 @@ public class Drivetrain extends SubsystemBase {
   public Field2d m_field = new Field2d();
   private final DifferentialDriveOdometry m_odometry;
   private final AHRS m_navX;
-  private final 
+  private final TalonEncoder m_leftEncoder;
+  private final TalonEncoder m_rightEncoder;
 
   public Drivetrain() {
     m_leftMotor1 = MotorFactory.createTalonFX(Constants.drive.kLeftMotor1);
     m_rightMotor1 = MotorFactory.createTalonFX(Constants.drive.kRightMotor1);
     m_rightMotor1.setInverted(true);
-    m_leftMotor1.set
+    m_leftEncoder= new TalonEncoder(m_leftMotor1);
+    m_rightEncoder= new TalonEncoder(m_rightMotor1);
 
     m_navX = new AHRS(SPI.Port.kMXP);
     m_odometry = new DifferentialDriveOdometry(m_navX.getRotation2d());
