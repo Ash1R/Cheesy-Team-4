@@ -40,11 +40,13 @@ public class Drivetrain extends SubsystemBase {
   public Field2d m_field = new Field2d();
   private final DifferentialDriveOdometry m_odometry;
   private final AHRS m_navX;
+  private final 
 
   public Drivetrain() {
     m_leftMotor1 = MotorFactory.createTalonFX(Constants.drive.kLeftMotor1);
     m_rightMotor1 = MotorFactory.createTalonFX(Constants.drive.kRightMotor1);
     m_rightMotor1.setInverted(true);
+    m_leftMotor1.set
 
     m_navX = new AHRS(SPI.Port.kMXP);
     m_odometry = new DifferentialDriveOdometry(m_navX.getRotation2d());

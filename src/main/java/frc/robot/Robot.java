@@ -14,6 +14,7 @@ import frc.robot.controls.Operator;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Outtake;
+import frc.robot.util.Functions;
 import frc.robot.util.ShuffleboardManager;
 
 /**
@@ -35,6 +36,8 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
+
+    Functions.loadPaths();
 
     // This is really annoying so it's disabled
     DriverStation.silenceJoystickConnectionWarning(true);

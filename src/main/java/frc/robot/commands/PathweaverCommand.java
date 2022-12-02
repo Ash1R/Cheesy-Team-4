@@ -65,7 +65,7 @@ public class PathweaverCommand extends SequentialCommandGroup {
     addRequirements(drive);
     System.out.println("Pathweaver command got called");
 
-    if (trajectory != null) {
+    // if (trajectory != null) {
 
       addCommands(
         (resetPose ? new InstantCommand(() -> drive.resetOdometry(trajectory.getInitialPose())) : new DoNothing()),
@@ -84,9 +84,9 @@ public class PathweaverCommand extends SequentialCommandGroup {
         ),
         (stopAtEnd ? new InstantCommand(() -> m_drive.tankDriveVolts(0, 0)) : new DoNothing())
       );
-    } else {
-      addCommands(new DoNothing());
-      System.err.println("trajectory is null");
-    }
+    // } else {
+    //   addCommands(new DoNothing());
+    //   System.err.println("trajectory is null");
+    // }
   }
 }
