@@ -11,7 +11,6 @@ import edu.wpi.first.wpilibj2.command.PrintCommand;
 import frc.robot.Robot;
 import frc.robot.commands.AutoCommand;
 import frc.robot.commands.PassengerAutoCommand;
-import frc.robot.commands.PathweaverCommand;
 
 public class ShuffleboardManager {
 

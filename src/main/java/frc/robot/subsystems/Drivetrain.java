@@ -50,9 +50,14 @@ public class Drivetrain extends SubsystemBase {
     m_rightMotor1.setInverted(true);
     m_leftEncoder= new TalonEncoder(m_leftMotor1);
     m_rightEncoder= new TalonEncoder(m_rightMotor1);
+    m_leftEncoder.setDistancePerPulse(2 * Math.PI * Constants.drive.kWheelRadius / Constants.drive.kGearRatio / Constants.drive.kEncoderResolution);
+    m_rightEncoder.setDistancePerPulse(2 * Math.PI * Constants.drive.kWheelRadius / Constants.drive.kGearRatio / Constants.drive.kEncoderResolution);
+    resetEncoders();
 
     m_navX = new AHRS(SPI.Port.kMXP);
+    resetNavX();
     m_odometry = new DifferentialDriveOdometry(m_navX.getRotation2d());
+
   }
 
   /**
@@ -91,21 +96,24 @@ public class Drivetrain extends SubsystemBase {
   }
 
   public double getLeftEncoder() {
-    return m_leftMotor1.getSelectedSensorPosition();
+    return m_leftEncoder.getDistance();
   }
   public double getRightEncoder() {
-    return m_rightMotor1.getSelectedSensorPosition();
+    return m_rightEncoder.getDistance();
   }
   public double getLeftEncoderSpeed() {
-    return m_leftMotor1.getSelectedSensorVelocity();
+    return m_leftEncoder.getRate();
   }
   public double getRightEncoderSpeed() {
-    return m_rightMotor1.getSelectedSensorVelocity();
+    return m_rightEncoder.getRate();
   }
 
   public void resetEncoders() {
-    m_leftMotor1.setSelectedSensorPosition(0);
-    m_rightMotor1.setSelectedSensorPosition(0);
+    m_leftEncoder.reset();
+    m_rightEncoder.reset();
+  }
+  public void resetNavX(){
+    m_navX.reset();
   }
   public void resetOdometry(Pose2d pose) {
     resetEncoders();
