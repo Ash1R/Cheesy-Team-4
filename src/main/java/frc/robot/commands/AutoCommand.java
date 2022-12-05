@@ -15,6 +15,7 @@ public class AutoCommand extends SequentialCommandGroup {
             new PrintCommand("Starting auto"),
             new PathweaverCommand("ForwardPart", true, false),
             new PathweaverCommand("BackwardPart", false, false),
+            // new WaitCommand(100),
             new PathweaverCommand("Forward2", false, false),
             new PathweaverCommand("Backward2", false, false),
             new PathweaverCommand("Forward2", false, false),

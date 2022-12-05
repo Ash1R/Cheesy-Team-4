@@ -96,16 +96,16 @@ public class Drivetrain extends SubsystemBase {
   }
 
   public double getLeftEncoder() {
-    return m_leftEncoder.getDistance();
+    return -m_leftEncoder.getDistance();
   }
   public double getRightEncoder() {
-    return m_rightEncoder.getDistance();
+    return -m_rightEncoder.getDistance();
   }
   public double getLeftEncoderSpeed() {
-    return m_leftEncoder.getRate();
+    return -m_leftEncoder.getRate();
   }
   public double getRightEncoderSpeed() {
-    return m_rightEncoder.getRate();
+    return -m_rightEncoder.getRate();
   }
 
   public void resetEncoders() {
@@ -122,8 +122,8 @@ public class Drivetrain extends SubsystemBase {
   }
 
   public void tankDriveVolts(double left, double right){
-    m_leftMotor1.setVoltage(left);
-    m_rightMotor1.setVoltage(right);
+    m_leftMotor1.setVoltage(-left);
+    m_rightMotor1.setVoltage(-right);
   }
 
   public RamseteController getRamseteController() {
