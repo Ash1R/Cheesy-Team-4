@@ -13,6 +13,8 @@ public class Driver {
 
   public static void configureControls() {
     driver.get(Button.A).whenPressed(new InstantCommand(()->Robot.m_intake.toggle()));
+    driver.get(Button.RB).whenPressed(new InstantCommand(()->Robot.m_outtake.setSetpoint(Constants.outtake.openSetpoint)));
+    driver.get(Button.RB).whenReleased(new InstantCommand(()->Robot.m_outtake.setSetpoint(Constants.outtake.closedSetpoint)));
   }
 
   public static double getLeftX(){

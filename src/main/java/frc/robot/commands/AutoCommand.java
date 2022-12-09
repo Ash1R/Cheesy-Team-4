@@ -6,14 +6,18 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.Robot;
+import frc.robot.constants.Constants;
 import frc.robot.subsystems.Drivetrain;
 
 public class AutoCommand extends SequentialCommandGroup {
     public AutoCommand(){
         addRequirements(Robot.m_drive);
         addCommands(
-            new PrintCommand("Starting auto"),
-            new PathweaverCommand("ForwardPart", true, false),
+            parallel(
+                new InstantCommand(()->Robot.m_outtake.startPid(Constants.outtake.closedSetpoint)),
+                new PrintCommand("Starting auto"),
+                new PathweaverCommand("ForwardPart", true, false)
+            ),
             new PathweaverCommand("BackwardPart", false, false),
             // new WaitCommand(100),
             new PathweaverCommand("Forward2", false, false),
