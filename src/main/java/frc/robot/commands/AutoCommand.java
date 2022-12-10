@@ -10,7 +10,7 @@ import frc.robot.constants.Constants;
 import frc.robot.subsystems.Drivetrain;
 
 public class AutoCommand extends SequentialCommandGroup {
-    public AutoCommand(){
+    public AutoCommand(){ //todo (maket his work)
         addRequirements(Robot.m_drive);
         addCommands(
             parallel(
