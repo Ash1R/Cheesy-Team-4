@@ -1,4 +1,4 @@
-gpackage frc.robot.constants;
+package frc.robot.constants;
 
 import frc.robot.subsystems.Outtake;
 
