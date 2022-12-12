@@ -54,5 +54,6 @@ public class Outtake extends SubsystemBase{
     }
     public void setSetpoint(double setpoint){
         this.setpoint=setpoint;
+        System.out.println("Outtake PID set to "+Math.round(setpoint));
     }
 }

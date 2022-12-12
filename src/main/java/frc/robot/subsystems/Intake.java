@@ -21,6 +21,7 @@ public class Intake extends SubsystemBase {
     public void setMotor(double speed){
         this.speed=speed;
         m_motor.set(speed);
+        System.out.printf("Intake motor set to %.2f\n", speed);
     }
 
     public double getSpeed(){
