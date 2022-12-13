@@ -6,19 +6,20 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.math.controller.PIDController;
+import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.constants.Constants;
 import frc.robot.util.MotorFactory;
 
 public class Outtake extends SubsystemBase{
     
-    private final CANSparkMax m_motor;
+    private final Servo m_motor;
     private final PIDController m_pid = new PIDController(Constants.outtake.P, Constants.outtake.I, Constants.outtake.D);
     private boolean pidEnabled = false;
     private double setpoint;
 
     public Outtake() {
-        m_motor = MotorFactory.createSparkMAX(Constants.outtake.kMotorId, MotorType.kBrushless);
+        m_motor = new Servo(Constants.outtake.kMotorId);
     }
 
     @Override
@@ -36,7 +37,7 @@ public class Outtake extends SubsystemBase{
     }
 
     public void zeroMotor(){
-        m_motor.getEncoder().setPosition(0);
+        m_motor.setPosition(0);
     }
 
     public void resetPid(){
@@ -47,7 +48,7 @@ public class Outtake extends SubsystemBase{
         m_motor.set(speed);
     }
     public double getMotor(){
-        return m_motor.getEncoder().getPosition();
+        return m_motor.getPosition();
     }
     public void setPidEnabled(boolean enabled){
         pidEnabled=enabled;
