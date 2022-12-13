@@ -19,7 +19,6 @@ public class SlowerAutoCommand extends SequentialCommandGroup {
                 new PathweaverCommand("Combined", true, false)
             ),
             // new WaitCommand(100),
-            new PathweaverCommand("Forward2", false, false),
             new PathweaverCommand("Backward2", false, false),
             new PathweaverCommand("Forward2", false, false),
             new PathweaverCommand("Backward2", false, false),
