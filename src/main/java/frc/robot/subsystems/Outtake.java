@@ -25,7 +25,7 @@ public class Outtake extends SubsystemBase{
     @Override
     public void periodic(){
         if(pidEnabled){
-            setMotor(m_pid.calculate(getMotor(), setpoint));
+            // setMotor(m_pid.calculate(getMotor(), setpoint));
         }
     }
 
@@ -44,8 +44,11 @@ public class Outtake extends SubsystemBase{
         m_pid.reset();
     }
 
-    public void setMotor(double speed){
-        m_motor.set(speed);
+    public void setMotor(double position){
+        m_motor.set(position);
+    }
+    public void setAngle(double angle){
+        m_motor.setAngle(angle);
     }
     public double getMotor(){
         return m_motor.getPosition();
@@ -55,6 +58,7 @@ public class Outtake extends SubsystemBase{
     }
     public void setSetpoint(double setpoint){
         this.setpoint=setpoint;
+        setAngle(setpoint);
         System.out.println("Outtake PID set to "+Math.round(setpoint));
     }
 }

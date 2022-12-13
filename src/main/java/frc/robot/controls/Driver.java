@@ -14,6 +14,7 @@ public class Driver {
   public static void configureControls() {
     driver.get(Button.A).whenPressed(new InstantCommand(()->Robot.m_intake.toggle()));
     driver.get(Button.B).whenPressed(new InstantCommand(()->Robot.m_intake.setMotor(-0.2)));
+    driver.get(Button.X).whenPressed(new InstantCommand(()->Robot.m_intake.setMotor(0.7/Constants.intake.speed)));
     driver.get(Button.RB).whenPressed(new InstantCommand(()->Robot.m_outtake.setSetpoint(Constants.outtake.openSetpoint)));
     driver.get(Button.RB).whenReleased(new InstantCommand(()->Robot.m_outtake.setSetpoint(Constants.outtake.closedSetpoint)));
   }
