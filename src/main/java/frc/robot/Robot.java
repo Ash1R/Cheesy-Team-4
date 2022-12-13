@@ -110,7 +110,7 @@ public class Robot extends TimedRobot {
     m_drive.setDefaultCommand(
       new RunCommand(()->m_drive.arcadeDrive(Driver.getLeftY(), Driver.getRightX()), m_drive)
     );
-    m_intake.setMotor(1);//Don't change this. If it's going in the wrong direction, invert it in the Intake class
+    // m_intake.setMotor(1);//Don't change this. If it's going in the wrong direction, invert it in the Intake class
   }
 
   /**
