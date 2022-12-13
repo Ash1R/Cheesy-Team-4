@@ -7,6 +7,6 @@ public class OuttakeConstants {
     public final double I = 0; //todo
     public final double D = 0; //todo
     
-    public final double openSetpoint = 0;
-    public final double closedSetpoint = 90; //todo
+    public final double openSetpoint = 90;
+    public final double closedSetpoint = 30; //todo
 }
